@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block title_head %}Nosotros{% endblock title_head %}
+{% load staticfiles %}
+{% block content %}
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Un poco de nosotros</h1>
+            <ol class="breadcrumb">
+                <li><a href="/">Inicio</a>
+                </li>
+                <li class="active">Nosotros</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Intro Content -->
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+        </div>
+        <div class="col-md-6">
+            <h2>Nuestra historia</h2>
+            <p>Fundada en Enero del 2012, ENLACERV es una pequeña PYME que surgió del trabajo de una familia emprendedora. Ubicada en el centro de Eugenio Bustos. Es administrada por un padre de familia (Chicho Sarmiento).</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Team Members -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">La Familia</h2>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="thumbnail">
+                <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                <div class="caption">
+                    <h3>Jorge "Chicho" Sarmiento<br>
+                        <small>Fundador y encargado</small>
+                    </h3>
+                    <p>Atiende el negocio la mayor parte del tiempo. Se encarga de casi todo</p>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="thumbnail">
+                <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                <div class="caption">
+                    <h3>Dr. Estela Sancho<br>
+                        <small>Socia</small>
+                    </h3>
+                    <p>Es la esposa del Chicho atiende ocasionalmente el negocio.</p>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="thumbnail">
+                <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                <div class="caption">
+                    <h3>Diego y Carla Sarmiento<br>
+                        <small>Ocasionalmente atención al cliente</small>
+                    </h3>
+                    <p>Los hijos de la familia. Ocasionalmente atiende el negocio cuando el Chicho no esta.</p>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    <!-- /.row -->
+
+    <!-- Our Customers -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Alguno de nuestros clientes</h2>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="{% static '/imagenes/municipalidad-sancarlos.png' %}" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+    </div>
+    <!-- /.row -->
+    <hr>
+</div>
+
+{% endblock %}

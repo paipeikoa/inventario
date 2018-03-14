@@ -1,0 +1,59 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="{% url 'home' %}" class="navbar-brand">EMS</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                {% url 'home' as home %}
+                {% url 'about' as about %}
+                {% url 'contact' as contact %}
+                <li {% if request.path == home %} class="active" {% endif %}><a href="{% url 'home' %}">Inicio</a></li>
+                <li {% if request.path == about %} class="active" {% endif %}><a href="{% url 'about' %}">Nosotros</a></li>
+                <li {% if request.path == contact %} class="active" {% endif %}><a href="{% url 'contact' %}">Contacto</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Páginas de Interés <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="http://www.sancarlos.gob.ar/">Municipalidad de San Carlos</a>
+                        </li>
+                        <li>
+                            <a href="http://www.elcucodigital.com/">El Cuco Digital</a>
+                        </li>
+                        <li>
+                            <a href="https://www.raddios.com/11840-radio-online-fm-vida-fm-995-la-consulta-argentina">Radio Municipal FM 99.5</a>
+                        </li>
+                        <li>
+                            <a href="http://www.coince.com.ar/">COINCE</a>
+                        </li>
+                        <li>
+                            <a href="http://www.mendoza.gov.ar">Tramites Mendoza</a>
+                        </li>
+                    </ul>
+                </li>
+                {% if not request.user.is_authenticated %}
+                <li><a href="{% url 'account_signup' %}"> Registrarse</a></li>
+                <li><a href="{% url 'account_login' %}"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+                {% else %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{user}} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'account_change_password' %}"> Cambiar contraseña</a></li>
+                        <li><a href="{% url 'profile' %}"> Cuenta</a></li>
+                        <li><a href="{% url 'edit-profile' %}"> Editar mis datos</a></li>
+                        <li><a href="{% url 'account_logout' %}"> Salir</a></li>
+                    </ul>
+                </li>
+                {% endif %}                
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End navbar -->

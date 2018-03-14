@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+
+{% block content %}
+<br><br><br>
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        <h1 style="text-align:center">{% trans "Editar Perfil:" %}</h1>
+		<h2 style="text-align:center">Datos Personales</h2>
+    	<form method="post">
+        	{% csrf_token %}
+  			{{ form|crispy }}
+  			<br><br>
+        	<button class="btn btn-success btn-lg btn-block" type="submit">{% trans "Registrar" %}</button>
+    	</form>
+    	<br>
+	</div>
+</div>
+<br><br><br><br>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="Cristian Zuñiga" content="">
+    <title></title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/modern-business.css' %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/estilo.css' %}" rel="stylesheet">
+</head>
+<body>
+{% include 'navbar.html' %}
+<!-- Start of Container -->
+{% block content %}
+        
+{% endblock %}
+{% block styles %}
+
+{% endblock %}
+
+</div>
+
+{% include 'footer.html' %}
+<div class="scrollup">
+    <a href="#">scroll</a>
+</div>
+<!-- End container -->
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://js.stripe.com/v3/"></script>
+{% block script %}
+{% endblock %}
+<script type="text/javascript">
+    $(document).ready(function(){
+  
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $('.scrollup').fadeIn();
+            } else {
+                $('.scrollup').fadeOut();
+            }
+        });
+  
+        $('.scrollup').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            return false;
+        });
+  
+    });
+</script>
+<script>
+$('.carousel').carousel({
+    interval: 5000 //changes the speed
+})
+</script>
+</body>
+</html>
