@@ -53,13 +53,13 @@ class Localidad(models.Model):
 class Direccion(models.Model):
 	"""Datos relacionado con la direccion de las personas"""
 	id_direccion = models.AutoField(primary_key=True)
-	calle 		 = models.CharField(max_length=100, null=False, blank=False)
-	numero 		 = models.PositiveSmallIntegerField(blank=False, null=False)
+	direcciones	 = models.CharField(max_length=200, null=False, blank=False)
 	localidad    = models.ForeignKey(Localidad, on_delete=models.CASCADE)
 
+
 	def __str__(self):
-		return self.calle + " " + self.numero
+		return self.direcciones + ", " + str(self.localidad)
 
 	class Meta:
-		ordering = ['calle']
+		ordering = ['direcciones']
 		verbose_name_plural = 'Direcciones' 

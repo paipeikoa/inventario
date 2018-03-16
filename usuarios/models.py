@@ -5,6 +5,7 @@ from allauth.account.signals import user_logged_in, user_signed_up
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from direcciones.models import Direccion
 
 
 class UserProfile(models.Model):
@@ -13,6 +14,7 @@ class UserProfile(models.Model):
     telefono_movil = models.CharField(max_length=11,verbose_name='telefono_móvil',blank=True)
     edad = models.CharField(max_length=2, verbose_name='edad',blank=True)
     fecha_nacimiento = models.DateField(blank=True,verbose_name='fecha de nacimiento',null=True)
+    #direccion = models.OneToOneField(Direccion, on_delete=models.CASCADE, verbose_name='Direcciones Usuarios')
 
     class Meta:
         verbose_name_plural='Perfiles de Usuario'
@@ -20,12 +22,12 @@ class UserProfile(models.Model):
     def __str__(self):
         return '%s' % (self.user)
 
-
 def create_profile(sender, **kwargs):
     if kwargs['created']:
         user_profile = UserProfile.objects.create(user=kwargs['instance'])
 
 post_save.connect(create_profile, sender=User)
+
 """
 #HOMBRE = 'H' 
 #MUJER = 'M'

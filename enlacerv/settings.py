@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'django.contrib.sites',
     'contact',
+    'direcciones',
 
 ]
 
