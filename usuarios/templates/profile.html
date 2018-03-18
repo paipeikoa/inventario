@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% load i18n %}
-
 {% block content %}
 <br><br>
 <div class="container">
@@ -36,6 +35,8 @@
 	            <ul class="list-group">
 					<a href="{% url 'edit-profile'%}" style="text-align:center" class="list-group-item">Actualizar mis datos</a>
   					<a href="#" style="text-align:center" class="list-group-item">Inventario</a>
+  					<a href="{% url 'account_change_password' %}" style="text-align:center" class="list-group-item">Cambiar contraseña</a>
+  					<a href="{% url 'account_email' %}" style="text-align:center" class="list-group-item">Editar correo electrónico</a>
   					<a href="/" style="text-align:center" class="list-group-item">Volver al inicio</a>
 				</ul>
 	       	</div>
@@ -61,29 +62,55 @@
 	            </div>
 	       	</div>
 	       	<div class="panel panel-default">
+	            <div class="panel-heading"><b>EMAIL</b></div>
+	            <div class="panel-body">
+	            <a href="mailto:{{user.email}}"><b>{{user.email}}</b></a></td>
+	            </div>
+	       	</div>
+	       	<div class="panel panel-default">
 	            <div class="panel-heading"><b>TELÉFONO FIJO</b></div>
-	            <div class="panel-body"> {{user.userprofile.telefono_fijo}}
+	            <div class="panel-body">
+	            {% if user.userprofile.telefono_fijo %}
+	            	{{user.userprofile.telefono_fijo}}
+	            {% else %}
+	            	No registra ningún teléfono fijo ingresado
+	            {% endif%}
 	            </div>
 	       	</div>
 	       	<div class="panel panel-default">
 	            <div class="panel-heading"><b>TELÉFONO MÓVIL</b></div>
-	            <div class="panel-body"> {{user.userprofile.telefono_movil}}
+	            <div class="panel-body">
+	            {% if user.userprofile.telefono_movil %}
+	            	{{user.userprofile.telefono_movil}}
+	            {% else %}
+	            	No registra ningún teléfono fijo móvil
+	            {% endif%}
 	            </div>
 	       	</div>
 	       	<div class="panel panel-default">
 	            <div class="panel-heading"><b>EDAD</b></div>
-	            <div class="panel-body"> {{user.userprofile.edad}}
+	            <div class="panel-body">
+	            {% if user.userprofile.edad %}
+	            	{{user.userprofile.edad}}
+	            {% else %}
+	            	No registra edad ingresada
+	            {% endif%}
 	            </div>
 	       	</div>
 	       	<div class="panel panel-default">
 	            <div class="panel-heading"><b>FECHA DE NACIMIENTO</b></div>
-	            <div class="panel-body"> {{user.userprofile.fecha_nacimiento}}
+	            <div class="panel-body">
+	            {% if user.userprofile.fecha_nacimiento %}
+	            	{{user.userprofile.fecha_nacimiento}}
+	            {% else %}
+	            	No registra fecha de nacimiento ingresada
+	            {% endif%}
 	            </div>
 	       	</div>
 	    </div>
   	</div>
 </div>
-
+<br><br>
 {% endblock %}
 <!--<div class="container">
 	<a href="mailto:info@support.com">info@support.com</a></td>
