@@ -107,34 +107,19 @@
 	            {% endif%}
 	            </div>
 	       	</div>
+	       	<div class="panel panel-default">
+	            <div class="panel-heading"><b>Dirección</b></div>
+	            <div class="panel-body">
+	            {% if user.userprofile.direccion %}
+	            	{{user.userprofile.direccion}}, {{user.userprofile.localidad}}, {{user.userprofile.localidad.departamento}}, {{user.userprofile.localidad.departamento.provincia}} 
+	            {% else %}
+	            	No registra dirección ingresada
+	            {% endif%}
+	            </div>
+	       	</div>
+
 	    </div>
   	</div>
 </div>
 <br><br>
 {% endblock %}
-<!--<div class="container">
-	<a href="mailto:info@support.com">info@support.com</a></td>
-	{% for message in messages %}
-		  <div class="alert {{ message.tags }} alert-dismissible" role="alert">
-		    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		      <span aria-hidden="true">&times;</span>
-		    </button>		
-		    {{ message }} 
-		  </div>
-	{% endfor %}
-</div>
-    <div class="col-md-4 col-md-offset-4">
-        
-        <h1 style="text-align:center">{% trans "Mi Perfil:" %}</h1>
-		<h2 style="text-align:center">Datos Personales</h2>
-		<ul>
-			<li>Usuario: {{ user.username }}</li>
-			<li>Nombre: {{ user.first_name }}</li>
-			<li>Apellido: {{ user.last_name }}</li>
-		  	<li>Teléfono Fijo: {{ user.userprofile.telefono_fijo }}</li>
-		  	<li>Teléfono Móvil: {{ user.userprofile.telefono_movil }}</li>
-		  	<li>Edad: {{ user.userprofile.edad }}</li>
-		  	<li>Fecha de nacimiento: {{ user.userprofile.fecha_nacimiento }}</li>
-		  	<li>Dirección: {{ user.userprofile.direccion }}</li>
-		</ul>
-	</div>-->

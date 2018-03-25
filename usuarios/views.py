@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
+#from direcciones.models import Provincia
 from .forms import EditProfileForm,SignupForm, UserProfileEdit
 from django.contrib import messages
 
@@ -33,14 +34,17 @@ def edit_profile(request):
             'telefono_movil':request.user.userprofile.telefono_movil,
             'edad':request.user.userprofile.edad,
             'fecha_nacimiento':request.user.userprofile.fecha_nacimiento,
+            'direccion':request.user.userprofile.direccion,
+            'localidad':request.user.userprofile.localidad,
     }
 
     user_profile_form = EditProfileForm(request.POST or None, instance=request.user, initial=data)
-
+    #direccion_edit_form = DireccionProfile(data=request.POST or None,instance=request.direcciones,initial=data1)
     if request.method == 'POST':
-        if user_profile_form.is_valid():
+        if user_profile_form.is_valid():# and direccion_edit_form.is_valid():
             print(data)
             user_profile_form.save(commit=True)
+            #direccion_edit_form.save(commit=True)
             user_edit_form = UserProfileEdit(data=request.POST,instance=request.user.userprofile)
             user_edit_form.save(commit=True)
             messages.success(request,'Los cambios se guardaron éxito')

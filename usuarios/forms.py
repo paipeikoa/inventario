@@ -1,8 +1,7 @@
-from django.contrib.auth.models import User
+from direcciones.models import Pais, Provincia, Localidad
 from .models import UserProfile
 from django.contrib.auth.forms import User
 from django import forms
-from django.contrib import messages
 from django.core.validators import RegexValidator
 
 
@@ -29,7 +28,6 @@ class SignupForm(forms.ModelForm):
 
 
 class EditProfileForm(forms.ModelForm):
-	
 
 	first_name = forms.CharField(validators=[RegexValidator(r'^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{1,30}$', "Ingrese nombre válido")],
 							max_length=30, required=True,
@@ -61,15 +59,32 @@ class EditProfileForm(forms.ModelForm):
 	fecha_nacimiento = forms.DateField(required=True,label='Fecha de Nacimiento',
 							widget=forms.DateInput(attrs={'placeholder':'24/10/1986',
 								  'required':True}))
+	
+	direccion = forms.CharField(validators=[RegexValidator(r'^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\.\s]{1,200}$', "Ingrese una dirección válida")],
+							max_length=200, required=True,
+							label=("Dirección"),widget=forms.TextInput(
+                            attrs={'placeholder': 'San Juan 852',
+                                  'autofocus': 'autofocus',
+                                  'required':True}))
+
+	
+	localidad = forms.ModelChoiceField(queryset=Localidad.objects.all())
+	
+	#provincia = forms.ModelChoiceField(queryset=Provincia.objects.all())
+
+	#departamento = forms.ModelChoiceField(queryset=Departamento.objects.all()) 
 
 	class Meta:
 		model = User
 		fields = ['username','first_name','last_name','email',
 				  'telefono_fijo','telefono_movil','edad',
-				  'fecha_nacimiento']
+				  'fecha_nacimiento','direccion','localidad']
+				 
 
 class UserProfileEdit(forms.ModelForm):
+
     class Meta:
         model = UserProfile
         fields = ['telefono_fijo','telefono_movil',
-				  'edad','fecha_nacimiento']
+				  'edad','fecha_nacimiento','direccion',
+				  'localidad']

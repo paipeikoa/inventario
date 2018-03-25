@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from usuarios import views as usuarios_views
 from contact import views as contact_views
+from direcciones import views as direcciones_views
 
 
 

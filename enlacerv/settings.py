@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'contact',
     'direcciones',
-
 ]
 
 MIDDLEWARE = [
