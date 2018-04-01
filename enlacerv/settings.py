@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'contact',
     'direcciones',
+    'avatar',
 ]
 
 MIDDLEWARE = [
@@ -145,13 +146,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 if DEBUG:
-    MEDIA_URL = '/media/'
     STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),"static","static-only")
-    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"static","media")
+    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"media","imagenes")
     STATICFILES_DIRS =(
-        #os.path.join(os.path.dirname(BASE_DIR),"static","static"),
         os.path.join(BASE_DIR, 'static','static'),
     )
 
@@ -197,3 +197,6 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+AVATAR_CLEANUP_DELETED = True
+AVATAR_MAX_AVATARS_PER_USER = 1

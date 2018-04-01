@@ -70,15 +70,14 @@ class EditProfileForm(forms.ModelForm):
 	
 	localidad = forms.ModelChoiceField(queryset=Localidad.objects.all())
 	
-	#provincia = forms.ModelChoiceField(queryset=Provincia.objects.all())
-
-	#departamento = forms.ModelChoiceField(queryset=Departamento.objects.all()) 
+	
 
 	class Meta:
 		model = User
 		fields = ['username','first_name','last_name','email',
 				  'telefono_fijo','telefono_movil','edad',
-				  'fecha_nacimiento','direccion','localidad']
+				  'fecha_nacimiento','direccion',]#'localidad']
+		#		  'imagen']
 				 
 
 class UserProfileEdit(forms.ModelForm):

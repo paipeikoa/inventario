@@ -1,3 +1,4 @@
+{% load avatar_tags %}
 <!-- Fixed navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -43,7 +44,7 @@
                 <li><a href="{% url 'account_login' %}"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
                 {% else %}
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{user}} <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user}}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'account_change_password' %}"> Cambiar contraseña</a></li>
                         <li><a href="{% url 'profile' %}"> Cuenta</a></li>
