@@ -1,0 +1,29 @@
+<div class="modal-dialog modal-lg">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">x</button>
+			<h3>Detalle Compra</h3>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-lg-4">
+					<label>DETALLE COMPRA:</label>
+					<p>{{ detallecompra.compra }}</p>
+					<label>DETALLE PRODUCTO°:</label>
+					<p>{{ detallecompra.producto }}</p>
+					<label>DETALLE CANTIDAD:</label>
+					<p>{{ detallecompra.cantidad }}</p>					
+					<label>DETALLE PRECIO:</label>
+					<p>{{ detallecompra.precio_compra }}</p>					
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div class="col-lg-12 text-right">
+				<button type="button" class="btn btn-primary" onclick="return cerrar_modal()">
+					Aceptar
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
