@@ -24,7 +24,7 @@
 	        {{ upload_avatar_form.as_p }}
 	        <p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
 	        <button class="btn btn-primary btn-sm btn-block" type="submit" name="action_primary" value="{% trans "Upload New Image" %}">{% trans 'Make Primary' %}</button>
-			<a class="btn btn-danger btn-sm btn-block" href="/profile/" role="button">{% trans "Cancelar" %}</a>       
+			<a class="btn btn-danger btn-sm btn-block" href="{% url 'profile'%}" role="button">{% trans "Cancelar" %}</a>       
 	    </form>
 	    <br><br><br><br>
 	</div>

@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'contact',
     'direcciones',
     'avatar',
+    'productos',
+    'widget_tweaks',
+    #'soft_delete_it',
 ]
 
 MIDDLEWARE = [
@@ -149,11 +152,10 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 if DEBUG:
-    STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),"static","static-only")
-    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"media","imagenes")
-    STATICFILES_DIRS =(
-        os.path.join(BASE_DIR, 'static','static'),
-    )
+    MEDIA_ROOT = os.path.join(BASE_DIR,"media","imagenes")
+    STATICFILES_DIRS =[
+        os.path.join(BASE_DIR, 'static'),
+    ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 

@@ -16,10 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
+from django.conf.urls.static import static
 from usuarios import views as usuarios_views
 from contact import views as contact_views
-from direcciones import views as direcciones_views
-from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -31,8 +30,12 @@ urlpatterns = [
     url(r'^edit-profile/$', usuarios_views.edit_profile, name='edit-profile'),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^avatar/', include('avatar.urls')),
+    url(r'^inventario/', include('productos.urls', namespace='productos')),
+
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

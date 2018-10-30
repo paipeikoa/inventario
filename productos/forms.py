@@ -1,30 +1,42 @@
 from django import forms
 from django.forms.models import modelformset_factory, inlineformset_factory
-from productos.models import Producto, Proveedor, Compra, DetalleCompra
+from productos.models import Producto, Proveedor, Compra, DetalleCompra, Categoria
 from django.core.validators import RegexValidator
+
+class CategoriaForm(forms.ModelForm):
+    nombre = forms.CharField(
+        validators=[RegexValidator(r'^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{1,50}$', "Ingrese nombre válido")])
+
+    class Meta:
+        model = Categoria
+        fields = ['nombre', 'descripcion']
+
+        def __init__(self, *args, **kwargs):
+            super(CategoriaForm, self).__init__(*args, **kwargs)
+            for field in iter(self.fields):
+                self.fields[field].widget.attrs.update({
+                        'class': 'form-control'
+                    })
 
 
 class ProductoForm(forms.ModelForm):
+    nombre = forms.CharField(
+        validators=[RegexValidator(r'^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{1,50}$', "Ingrese nombre válido")])
+    #imagenes = forms.FileField(
+    #    label='Elija el archivo',
+    #    help_text='max. 42 megabytes')
+
     class Meta:
         model = Producto
-        fields = ['descripcion', 'marca', 'precio', 'estado']
+        fields = ['categoria','nombre', 'marca', 'tipo_producto', 'precio', 'cantidad','imagenes']
 
-    def __init__(self, *args, **kwargs):
-        super(ProductoForm, self).__init__(*args, **kwargs)
-        for field in iter(self.fields):
-            if field != 'estado':
+        def __init__(self, *args, **kwargs):
+            super(ProductForm, self).__init__(*args, **kwargs)
+            for field in iter(self.fields):
                 self.fields[field].widget.attrs.update({
-                    'class': 'form-control'
-                })
-                if field == 'descripcion':
-                    self.fields[field].widget.attrs.update(placeholder='Caño de Agua')
-                    #self.fields[field].validators=[RegexValidator(r'^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{1,100}$', "Ingrese nombre válido")]
-                if field == 'marca':
-                    self.fields[field].widget.attrs.update(placeholder='Aquasystem')
-                if field == 'precio':
-                    self.fields[field].widget.attrs.update(placeholder='134.99')
+                        'class': 'form-control'
+                    })
 
-    
 class ProveedorForm(forms.ModelForm):
     class Meta:
         model = Proveedor
@@ -88,3 +100,5 @@ class DetalleCompraForm(forms.ModelForm):
 
 
 DetalleCompraFormSet = inlineformset_factory(Compra, DetalleCompra, form=DetalleCompraForm, extra=1)
+
+

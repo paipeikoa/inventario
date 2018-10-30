@@ -18,3 +18,4 @@ urlpatterns = [
     url(r'^compras/$', ListadoCompras.as_view(), name="listado_compras"),
     url(r'^detalle_compra/(?P<pk>.+)/$', DetalleCompras.as_view(), name="detalle_compra"),
 ]
+

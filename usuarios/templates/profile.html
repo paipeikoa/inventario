@@ -28,7 +28,7 @@
 		<!-- left column -->
 		<div class="col-md-3">
 			<div class="text-center">
-				{% avatar user 85 class="img-circle"%}
+				{% avatar user class="img-circle" %}
 			</div><br>
 			<div>
 				<a class="btn btn-primary btn-md btn-block" href="{% url 'avatar_change' %}" role="button">{% trans "Actualizar foto" %}</a>
@@ -38,7 +38,7 @@
 	            <div style="text-align:center" class="panel-heading"><b>Ajustes de cuenta</b></div>
 	            <ul class="list-group">
 					<a href="{% url 'edit-profile'%}" style="text-align:center" class="list-group-item">Actualizar mis datos</a>
-  					<a href="#" style="text-align:center" class="list-group-item">Inventario</a>
+  					<a href="{% url 'product:product_list' %}" style="text-align:center" class="list-group-item">Inventario</a>
   					<a href="{% url 'account_change_password' %}" style="text-align:center" class="list-group-item">Cambiar contraseña</a>
   					<a href="{% url 'account_email' %}" style="text-align:center" class="list-group-item">Editar correo electrónico</a>
   					<a href="/" style="text-align:center" class="list-group-item">Volver al inicio</a>

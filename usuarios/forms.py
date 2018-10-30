@@ -16,7 +16,7 @@ class SignupForm(forms.ModelForm):
 							label=("Apellido"),widget=forms.TextInput(
                             attrs={'placeholder': ('Perez'),
                                   'autofocus': 'autofocus'}))
-	
+
 	class Meta:
 		model = User
 		fields = ['first_name', 'last_name']
@@ -25,7 +25,6 @@ class SignupForm(forms.ModelForm):
 		user.first_name = self.cleaned_data['first_name'].capitalize()
 		user.last_name = self.cleaned_data['last_name'].capitalize()
 		user.save()
-
 
 class EditProfileForm(forms.ModelForm):
 
@@ -67,10 +66,7 @@ class EditProfileForm(forms.ModelForm):
                                   'autofocus': 'autofocus',
                                   'required':True}))
 
-	
 	localidad = forms.ModelChoiceField(queryset=Localidad.objects.all())
-	
-	
 
 	class Meta:
 		model = User
@@ -78,7 +74,6 @@ class EditProfileForm(forms.ModelForm):
 				  'telefono_fijo','telefono_movil','edad',
 				  'fecha_nacimiento','direccion',]#'localidad']
 		#		  'imagen']
-				 
 
 class UserProfileEdit(forms.ModelForm):
 
