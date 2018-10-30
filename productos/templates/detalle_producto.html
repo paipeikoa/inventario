@@ -1,28 +1,3 @@
-<!--<div class="panel panel-default">
-	<div class="panel-body">
-		<div class="row">
-			<div class="col-lg-7">
-				<h3>{{ object.descripcion }}</h3>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4">
-				<label>MARCA:</label>
-				<p>{{ object.marca }}</p>
-				<label>PRECIO:</label>
-				<p>{{ object.precio }}</p>
-				<label>ESTADO:</label>
-				{% if object.estado %}
-					<p>ACTIVO</p>
-				{% else %}
-					<p>INACTIVO</p>
-				{% endif %}
-			</div>
-		</div>
-	</div>
-</div>-->
-
-
 <div class="modal-dialog modal-lg">
 	<div class="modal-content">
 		<div class="modal-header">
@@ -32,16 +7,16 @@
 		<div class="modal-body">
 			<div class="row">
 				<div class="col-lg-4">
-					<label>MARCA:</label>
+					<label>Categoría</label>
+					<p>{{ object.categoria }}</p>
+					<label>Nombre</label>
+					<p>{{ object.nombre }}</p>
+					<label>Marca:</label>
 					<p>{{ object.marca }}</p>
-					<label>PRECIO:</label>
+					<label>Precio:</label>
 					<p>{{ object.precio }}</p>
-					<label>ESTADO:</label>
-					{% if object.estado %}
-						<p>ACTIVO</p>
-					{% else %}
-						<p>INACTIVO</p>
-					{% endif %}
+					<label>Cantidad:</label>
+					<p>{{ object.cantidad }}</p>
 			</div>
 		</div>
 		<div class="modal-footer">
