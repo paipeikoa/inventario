@@ -11,10 +11,13 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nombre
 
+    def get_producto_count(self):
+        return Producto.objects.filter(categoria_id=self).count()
+
 class Producto(models.Model):
     categoria = models.ForeignKey(
                 Categoria, on_delete=models.CASCADE,
-                null=True, verbose_name='Categoria')
+                null=True, verbose_name='Categoria', related_name='+')
     KILOS = 1
     METROS = 2
     LITROS = 3
@@ -42,3 +45,4 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+ 
