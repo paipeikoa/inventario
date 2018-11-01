@@ -1,6 +1,6 @@
 <div class="modal-dialog" role="document">
 	<div class="modal-content">
-		<form method="post" action="{% url 'productos:eliminar_producto' object.pk %}">
+		<form method="post" action="{% url 'productos:eliminar_categoria' object.pk %}">
 			{% csrf_token %}
 			<div class="modal-header" style="background-color: #EE1F1F; color:#fff;">
 				<button type="button" class="close" data-dismiss="modal" arial-label="Close">
@@ -9,8 +9,14 @@
 				<h3 class="modal-title" style="text-align: center">Confirmar Eliminación</h3>
 			</div>	
 			<div class="modal-body">
-				<p class="lead">¿Esta seguro que desea eliminar el producto
-				<strong>{{ object.nombre}}</strong>?</p>
+				<p class="lead">¿Está seguro que desea eliminar la categoría
+				{% if object.get_producto_count == 1 %}
+				<strong>{{ object.nombre }}</strong>? También se eliminara el producto que tiene asociado.
+				{% elif object.get_producto_count > 1%}
+				<strong>{{ object.nombre }}</strong>? También se eliminaran los <strong>{{ object.get_producto_count }}</strong> productos asociados.
+				{% else %}
+				<strong>{{ object.nombre }}</strong> definitivamente?
+				{% endif %}</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

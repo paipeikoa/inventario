@@ -2,16 +2,16 @@
 <div class="modal-dialog" role="document">
 	<div class="modal-content">
 		{% if object %}
-		<form role="form" action="{% url 'productos:modificar_producto' object.pk %}" method="post" enctype="multipart/form-data">
+		<form role="form" action="{% url 'productos:modificar_categoria' object.pk %}" method="post" enctype="multipart/form-data">
 		{% else %}
-		<form role="form" action="{% url 'productos:crear_producto' %}" method="post" enctype="multipart/form-data">
+		<form role="form" action="{% url 'productos:crear_categoria' %}" method="post" enctype="multipart/form-data">
 		{% endif %}
 		<div class="modal-header" style="background-color: #337FB7; border-color:#2e6da4; color:#fff;">
             <button type="button" class="close" data-dismiss="modal">x</button>
             {% if not object %}
-            <h3 style="text-align: center">Nuevo Producto {{ producto.nombre }}</h3>
+            <h3 style="text-align: center">Nueva Categoria {{ categoria.nombre }}</h3>
             {% else %}
-            <h3 style="text-align: center">Modificar Producto {{ producto.nombre }}</h3>
+            <h3 style="text-align: center">Modificar Categoria {{ categoria.nombre }}</h3>
             {% endif %}
         </div>
 			<div class="modal-body">
