@@ -10,9 +10,101 @@
                   </li>
                   <li class="active">inventario</li>
               </ol>
-        </div>
-        <h1 style="text-align:center">Sistema de Inventario EMS</h1>
-    </div>
+        </div><br><br><br>
+    	<h1 style="text-align:center">Sistema de Inventario EMS</h1><hr>		
+  	</div><br>
+  	<div class="container-fluid">
+  	<div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-wrench fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div style="font-size: 40px;">{{ produ }}</div>
+                                    <div><strong>Productos</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{% url 'productos:listado_productos' %}">
+                            <div class="panel-footer">
+                                <span class="pull-left">PRODUCTOS INVENTARIADOS</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-barcode fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div style="font-size: 40px;">{{ categ }}</div>
+                                    <div><strong>Categorías</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{% url 'productos:listado_categorias' %}">
+                            <div class="panel-footer">
+                                <span class="pull-left">CATEGORIA DE PRODUCTOS</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-user fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div style="font-size: 40px;">{{ usuarios }}</div>
+                                    <div><strong>Usuarios</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/admin/usuarios/userprofile/">
+                            <div class="panel-footer">
+                                <span class="pull-left">CUENTAS DE USUARIOS</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-wechat fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div style="font-size: 40px;">0</div>
+                                    <div><strong>CHAT</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">PROXIMAMENTE</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+       </div><br><br>
 </div>
 <br><br>
 {% endblock content %}

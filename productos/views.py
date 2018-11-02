@@ -7,12 +7,21 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from productos.models import Producto, Categoria
 from productos.forms import ProductoForm, CategoriaForm
+from usuarios.models import UserProfile
 
 
 @method_decorator(login_required, name='dispatch')
 class HomeInventario(ListView):
     model = Producto
-    template_name = 'inventario.html'    
+    template_name = 'inventario.html'
+
+    def get_context_data(self, **kwargs):
+        productos = Producto.objects.all().count()
+        categorias = Categoria.objects.all().count()
+        usuarios = UserProfile.objects.all().count()
+        context = super(HomeInventario, self).get_context_data(**kwargs)
+        context.update({'produ': productos, 'categ': categorias, 'usuarios': usuarios})
+        return context
 
 
 @method_decorator(login_required, name='dispatch')
@@ -84,4 +93,3 @@ class DetalleCategoria(DetailView):
 class EliminarCategoria(DeleteView):
     model = Categoria
     success_url = reverse_lazy('productos:listado_categorias')
-
