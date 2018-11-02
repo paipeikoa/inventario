@@ -22,3 +22,14 @@
 .tilde{
     width: 140px;
 }
+
+.thumbnail {
+      padding: 0 0 15px 0;
+      background-color:lightgray;
+      border-radius: 0;
+}
+
+.thumbnail p {
+      margin-top: 15px;
+      color: #555;
+}
