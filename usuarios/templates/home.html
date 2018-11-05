@@ -1,5 +1,127 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title_head %}Inicio{% endblock title_head %}
 {% block content %}
 {% include 'header.html' %}
+<!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    EMS - INSUMOS DE AGUA, GAS Y MÁS
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-shower"></i> AGUA - AQUASYSTEM</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>El sistema líder para conducción de agua en Polipropileno Copolímero Random (tipo 3):
+							<ul>
+								<li>Unión por Thermofusión de máxima seguridad</li>
+								<li>Superior resistencia a elevadas temperaturas y presiones</li>
+								<li>Libre de sarro y corrosión</li>
+								<li>Muy alta resistencia al impacto</li>
+								<li>Gama completa de conexiones, accesorios y herramientas en medidas de 20 a 125 mm</li>
+								<li>Tubos ACQUA LUMINIM, con alma de aluminio.</li>
+							</ul>
+						</p>
+                        <a href="{% static 'archivos/Aqua_System.pdf' %}" class="btn btn-info btn-block" >Más Información</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-shower"></i> AGUA - IPS</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong>SISTEMA IPS FUSIÓN:</strong>
+							La manera más confiable de conducir agua fría y caliente. </p>
+							La calidad del Sistema IPS Fusión está garantizada desde el primer momento, ya que para su fabricación utilizamos polipropileno copolímero RANDOM o Tipo III, con formulación de origen europeo.
+						</p>	
+						<p>
+							Por su gran tenacidad, resulta ser el material más apto para la unión por fusión 	molecular, otorgando alta resistencia a las distintas solicitaciones mecánicas.
+						</p>
+                        <a href="{% static 'archivos/IPS.pdf' %}"  class="btn btn-info btn-block" >Más Información</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-thermometer-half"></i> GAS - SIGAS</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong>Triple seguridad en la conducción de gas</strong>
+						<p>
+							SIGAS Thermofusión es un sistema de conducción y distribución interna de gas natural y gases licuados de petróleo para viviendas, Industrias y todo tipo de edificios, producido en polietileno y acero, con unión por Thermofusión.			
+						</p>
+						<p>
+							<strong>SIGAS THERMOFUSIÓN</strong> le suma a su marca impresa cuatro líneas, que facilitan su rápida identificación visual:
+							En los caños, 4 líneas negras longitudinales, ubicadas a 90° entre sí.
+							Y en las conexiones, 4 líneas paralelas contiguas, en cada pieza.
+						</p>
+                        <a href="{% static 'archivos/Sigas_Thermofusion.pdf' %}"  class="btn btn-info btn-block" >Más Información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">ALGUNOS DE NUESTROS PRODUCTOS</h2>
+            </div>
+            {% for prod in produ %}
+            <div class="col-md-3 col-sm-6">
+                <a href="#">
+                    <img id="imagenes" class="img-responsive img-portfolio img-hover img-rounded" src="{{ prod.imagenes.url }}" alt="{{prod.nombre}}">
+                </a>
+            </div>           
+            {% endfor %}
+        </div>
+        <!-- /.row -->
+
+        <!-- Features Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">EMS - DESAGÜES
+                </h2>
+            </div>
+            <div class="col-md-6">
+                <p>Modelos:</p>
+                <ul>
+                    <li><strong>DURATOP X</strong></li>
+                    <li><strong>DURATOP XR</strong></li>
+                </ul>
+                <p>El más alto rango de calidad en Desagües
+					Hace 25 años, GRUPO DEMA introdujo en Latinoamérica ACQUA SYSTEM. Y hace  15 años,  desarrolló SIGAS THERMOFUSIÓN.</p>
+				<p>
+					Con esa experiencia y capacidad técnica e industrial, Grupo Dema desarrolló la  LÍNEA X de DURATOP, con el respaldo y la garantía de la empresa de vanguardia en la conducción de fluidos.</p>
+				<p>
+					DURATOP X y DURATOP XR son sistemas complementarios, que ya han sido adoptados por reconocidas empresas instaladoras y constructoras para incorporarlos en destacadas obras. Y su color Negro los distingue en su presentación estética y los define en su diferencial de calidad.
+				</p>
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive img-rounded" src="{% static 'imagenes/duratop.jpg' %}" alt="">
+            </div>
+        </div>
+        <hr>
+        <div class="well">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Conoce más de las primeras marcas sobre GAS, AGUA, DESAGÜES.</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-lg btn-primary btn-block" href="https://www.grupodema.com.ar/">GRUPO DEMA</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<div>
 {% endblock content %}
