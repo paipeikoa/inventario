@@ -7,14 +7,14 @@
   <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
-                <li><a href="/">Inicio</a>
+                <li><a href="{% url 'home' %}">Inicio</a>
                 </li>
                 <li><a href="{% url 'profile' %}">Cuenta</a></li>
                 <li class="active">Agregar avatar</li>
             </ol>
         </div>
     </div>
-    <div class="col-md-9 col-md-offset-4">
+    <div class="col-md-4 col-md-offset-4">
         <h1 style="text-align:center">{% trans "Su avatar actual" %}</h1>
     	<div style="text-align:center">{% avatar user class="img-circle"%}</div><br>
 	    {% if not avatars %}
@@ -22,9 +22,9 @@
 	    {% endif %}
 	    <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
 	        {{ upload_avatar_form.as_p }}
-	        <p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
-	        <button class="btn btn-primary btn-sm btn-block" type="submit" name="action_primary" value="{% trans "Upload New Image" %}">{% trans 'Make Primary' %}</button>
-			<a class="btn btn-danger btn-sm btn-block" href="{% url 'profile'%}" role="button">{% trans "Cancelar" %}</a>       
+	        <p>{% csrf_token %}<input class="btn btn-block" type="submit" value="{% trans "Upload New Image" %}" /></p>
+	        <p><button class="btn btn-primary btn-md btn-block" type="submit" name="action_primary" value="{% trans "Upload New Image" %}">{% trans 'Make Primary' %}</button></p>
+			<p><a class="btn btn-danger btn-md btn-block" href="{% url 'profile'%}" role="button">{% trans "Cancelar" %}</a></p>       
 	    </form>
 	    <br><br><br><br>
 	</div>

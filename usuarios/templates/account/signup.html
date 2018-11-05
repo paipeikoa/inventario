@@ -19,7 +19,8 @@
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <br>
-  <button class="btn btn-success btn-lg btn-block" type="submit">{% trans "Registrarse" %}</button>
+  <button class="btn btn-success btn-lg btn-block" type="submit">{% trans "Registrarse" %}</button><br>
+  <a href="{% url 'home' %}" class="btn btn-danger btn-lg btn-block" role="button">Cancelar</a>
 </form>
 
 </div>

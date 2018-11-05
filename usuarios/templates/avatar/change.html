@@ -1,12 +1,13 @@
 {% extends "avatar/base.html" %}
 {% load i18n avatar_tags %}
+{% load crispy_forms_tags %}
 {% block content %}
 <br><br>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
-                <li><a href="/">Inicio</a>
+                <li><a href="{% url 'home' %}">Inicio</a>
                 </li>
                 <li><a href="{% url 'profile' %}">Cuenta</a></li>
                 <li class="active">Cambiar o agregar avatar</li>
@@ -19,18 +20,20 @@
         {% if not avatars %}
             <p>{% trans "You haven't uploaded an avatar yet. Please upload one now." %}</p>
         {% else %}
-            <form method="POST" action="{% url 'avatar_change' %}">
-                <ul style="">
+            <form method="POST" action="{% url 'avatar_change' %}"><br>
+                <!--<ul>
                     {{ primary_avatar_form.as_ul }}
                 </ul>
-                <p>{% csrf_token %}<input type="submit" value="{% trans "Choose new Default" %}" /></p>
+                <p>{% csrf_token %}<input class="btn btn-block btn-success" type="submit" value="{% trans "Choose new Default" %}" /></p>-->
 
             </form>
         {% endif %}
         <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
             {{ upload_avatar_form.as_p }}
-            <p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
+            <p>{% csrf_token %}<input class="btn btn-block btn-primary" type="submit" value="{% trans "Upload New Image" %}" /></p>
+            <p><a class="btn btn-block btn-warning" href="{% url 'profile' %}" role="button">Cuenta</a></p>
+            <p><a class="btn btn-block btn-danger" href="{% url 'avatar_delete' %}" role="button">Eliminar Avatar</a></p>
         </form>
     </div>
-</div>
+</div><br><br><br>
 {% endblock %}
