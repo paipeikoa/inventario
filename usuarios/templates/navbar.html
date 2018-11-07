@@ -16,9 +16,11 @@
                 {% url 'home' as home %}
                 {% url 'about' as about %}
                 {% url 'contact' as contact %}
+                {% url 'manuales' as manuales %}
                 <li {% if request.path == home %} class="active" {% endif %}><a href="{% url 'home' %}">Inicio</a></li>
                 <li {% if request.path == about %} class="active" {% endif %}><a href="{% url 'about' %}">Nosotros</a></li>
                 <li {% if request.path == contact %} class="active" {% endif %}><a href="{% url 'contact' %}">Contacto</a></li>
+                <li {% if request.path == manuales %} class="active" {% endif %}><a href="{% url 'manuales' %}">Manuales</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Páginas de Interés <b class="caret"></b></a>
                     <ul class="dropdown-menu">
