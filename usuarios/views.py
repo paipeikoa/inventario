@@ -1,16 +1,35 @@
+from django.views.generic.list import ListView
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import EditProfileForm,SignupForm, UserProfileEdit
 from django.contrib import messages
-
+from productos.models import Producto, Categoria
 
 # Create your views here.
 
-def home(request):
-    context = {}
+"""def home(request):
+    productos = Producto.objects.all()
+    context = {'productos':productos,}
     templates = 'home.html'
+    return render(request,templates,context)
+"""
+class Home(ListView):
+    model = Producto
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        productos = Producto.objects.all()[:12]
+        categorias = Categoria.objects.all()
+        usuarios = UserProfile.objects.all()
+        context = super(Home, self).get_context_data(**kwargs)
+        context.update({'produ': productos, 'categ': categorias, 'usuarios': usuarios})
+        return context
+
+def manuales(request):
+    context = {}
+    templates = 'manuales.html'
     return render(request,templates,context)
 
 def about(request):
