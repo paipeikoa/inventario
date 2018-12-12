@@ -202,3 +202,5 @@ MESSAGE_TAGS = {
 
 AVATAR_CLEANUP_DELETED = True
 AVATAR_MAX_AVATARS_PER_USER = 1
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
