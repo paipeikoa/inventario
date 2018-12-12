@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'contact',
     'direcciones',
-    'avatar',
+    #'avatar',
     'productos',
     'widget_tweaks',
     #'soft_delete_it',
